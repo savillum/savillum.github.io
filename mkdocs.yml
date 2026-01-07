@@ -1,0 +1,97 @@
+site_name: S4v's Blog
+site_description: Pentest && Windows internals R&D
+site_url: https://savillum.github.io
+theme:
+  name: material
+  palette:
+    scheme: dracula      # nome del nuovo schema
+    primary: custom      # dice a Material che userai colori custom via CSS
+    accent: custom
+
+  font:
+    # text: Merriweather Sans
+    code: Red Hat Mono
+
+  custom_dir: overrides
+
+  logo: assets/images/logo.png
+  favicon: assets/images/logo.png
+
+#  features:
+#    - navigation.footer
+
+extra:
+  homepage: /
+  generator: false
+
+extra_css:
+  - assets/stylesheets/dracula.css
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - nl2br
+  - admonition
+
+copyright: Copyright &copy; 2025 S4villum
+
+plugins:
+  - search
+  - roamlinks
+  - callouts
+  - blog:
+      enabled: true
+      blog_dir: .
+      blog_toc: false
+      post_dir: "{blog}/posts"
+      post_url_max_categories: 1
+      post_slugify_separator: "-"
+      post_excerpt_max_authors: 0
+      post_excerpt_max_categories: 0
+      post_excerpt_separator: <!-- more -->
+      post_readtime: false
+      post_readtime_words_per_minute: 265
+      archive: true
+      archive_name: Archive
+      archive_pagination: true
+      archive_pagination_per_page: 10
+      archive_date_format: yyyy MMMM
+      archive_url_date_format: yyyy/MM
+      archive_toc: false
+      categories: true
+      categories_name: Categories
+      categories_slugify_separator: "-"
+      categories_pagination: true
+      categories_pagination_per_page: 10
+      categories_toc: false
+      authors: false
+      pagination: true
+      pagination_per_page: 10
+      pagination_keep_content: false
+      draft: false
+      draft_on_serve: true
+      draft_if_future_date: false
+
+
+
+nav:
+  - Home: index.md
+  - About: about.md
+  

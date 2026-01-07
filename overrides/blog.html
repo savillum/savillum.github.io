@@ -1,0 +1,30 @@
+{#-
+  Override del template del blog di Material for MkDocs
+  Mostra l'indice dei post dentro card con bordi arrotondati
+-#}
+{% extends "main.html" %}
+
+{% block content %}
+
+  <!-- Header del blog (contenuto di blog/index.md) -->
+  <header class="md-typeset">
+    {{ page.content }}
+  </header>
+
+  <!-- Indice dei post -->
+  <section class="blog-index">
+    {% for post in posts %}
+      <article class="blog-card">
+        {% include "partials/post.html" %}
+      </article>
+    {% endfor %}
+  </section>
+
+  <!-- Paginazione (lasciata com'è nel tema originale) -->
+  {% if pagination %}
+    {% block pagination %}
+      {% include "partials/pagination.html" %}
+    {% endblock %}
+  {% endif %}
+
+{% endblock %}

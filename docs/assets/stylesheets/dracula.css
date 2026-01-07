@@ -1,0 +1,121 @@
+/* Schema dracula per Material */
+
+[data-md-color-scheme="dracula"] {
+  /* ---- Colori di base ---- */
+  /* Sfondo principale */
+  --md-default-bg-color:          #282a36;
+  --md-default-bg-color--light:   #282a36;
+  --md-default-bg-color--lighter: #44475a;
+
+  /* Testo principale */
+  --md-default-fg-color:          #f8f8f2;
+  --md-default-fg-color--light:   #f8f8f2;
+  --md-default-fg-color--lighter: #f8f8f2;
+
+  /* Testo nel contenuto */
+  --md-typeset-color:             #f8f8f2;
+
+  /* ---- Primary / accent in stile Dracula ---- */
+  /* Purple come primary (header, link principali, ecc.) */
+  --md-primary-fg-color:          #bd93f9;
+  --md-primary-fg-color--light:   #d6b7ff;
+  --md-primary-fg-color--dark:    #6941a5;
+
+  /* Pink come accent (hover, bottoni, highlight) */
+  --md-accent-fg-color:           #ff79c6;
+
+  /* ---- Link nel contenuto ---- */
+  /* Colore link normale: Cyan */
+  --md-typeset-a-color:           #8be9fd;
+  /* Colore link evidenziato/hover: Orange */
+  --md-typeset-a-hl-color:        #ffb86c;
+
+  /* ---- Blocchi di codice ---- */
+  --md-code-bg-color:             #21222c;
+  --md-code-fg-color:             #f8f8f2;
+  --md-code-hl-color:             #44475a;
+
+  /* ---- Footer ---- */
+  --md-footer-bg-color:           #21222c;
+  --md-footer-bg-color--dark:     #191a21;
+  --md-footer-fg-color:           #f8f8f2;
+  --md-footer-fg-color--light:    #f8f8f2;
+}
+
+
+/* Logo personalizzato nella sidebar principale */
+.md-sidebar--primary .sidebar-logo-wrapper {
+  padding: 0px 0px 12px 40px;
+  text-align: left;
+}
+
+.md-sidebar--primary .sidebar-logo-link {
+  display: inline-block;
+}
+
+/* Immagine tonda 120x120 */
+.md-sidebar--primary .sidebar-logo-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;   /* la rende circolare */
+  object-fit: cover;    /* se l'immagine è rettangolare, la ritaglia mantenendo il centro */
+  display: block;
+  margin: 0 auto;
+}
+
+/* (Opzionale) se vuoi un po' meno spazio tra logo e titolo */
+.md-sidebar--primary .md-nav__title {
+  margin-top: 4px;
+}
+
+/* (Opzionale) se NON vuoi più il logo piccolo vicino al site_name nella sidebar */
+.md-sidebar--primary .md-logo img,
+.md-sidebar--primary .md-logo svg {
+  display: none;
+}
+
+.md-header .md-logo {
+  display: none;
+}
+
+/* Contenitore generale dell'indice del blog */
+.blog-index {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;          /* spazio tra una card e l'altra */
+  margin-top: 1.5rem;
+}
+
+/* Card del singolo post */
+.blog-card {
+  border-radius: 12px;  /* bordi arrotondati */
+  padding: 1.2rem 1.5rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  background: var(--md-default-bg-color--lighter);
+}
+
+/* Per sicurezza, assicuriamoci che il testo interno usi la tipografia standard */
+.blog-card .md-typeset {
+  margin: 0;
+}
+
+/* (Opzionale) Effetto hover leggero sulla card */
+.blog-card:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Nasconde la scrollbar nella sidebar primaria mantenendo lo scroll */
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  scrollbar-width: none;          /* Firefox */
+}
+
+/* Chrome, Edge, Safari */
+.md-sidebar--primary .md-sidebar__scrollwrap::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+html {
+  overflow-y: scroll;  /* forza sempre la presenza del canale della scrollbar */
+}

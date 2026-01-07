@@ -1,0 +1,46 @@
+{#-
+  This file was automatically generated - do not edit
+  (nota: questa è la versione override nel tuo progetto, qui puoi modificarla)
+-#}
+{% import "partials/nav-item.html" as item with context %}
+{% set class = "md-nav md-nav--primary" %}
+{% if "navigation.tabs" in features %}
+  {% set class = class ~ " md-nav--lifted" %}
+{% endif %}
+{% if "toc.integrate" in features %}
+  {% set class = class ~ " md-nav--integrated" %}
+{% endif %}
+<nav class="{{ class }}" aria-label="{{ lang.t('nav') }}" data-md-level="0">
+
+  {# --- BLOCCO LOGO PERSONALIZZATO SOPRA LA NAV --- #}
+  {% set sidebar_logo = config.extra.sidebar_logo or config.theme.logo %}
+  {% if sidebar_logo %}
+    <div class="sidebar-logo-wrapper">
+      <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}"
+         class="sidebar-logo-link"
+         aria-label="{{ config.site_name }}">
+        <img
+          src="{{ sidebar_logo | url }}"
+          alt="{{ config.site_name }}"
+          class="sidebar-logo-image"
+          width="120"
+          height="120"
+        >
+      </a>
+    </div>
+  {% endif %}
+  {# --- FINE BLOCCO LOGO --- #}
+
+
+  {% if config.repo_url %}
+    <div class="md-nav__source">
+      {% include "partials/source.html" %}
+    </div>
+  {% endif %}
+  <ul class="md-nav__list" data-md-scrollfix>
+    {% for nav_item in nav.items %}
+      {% set path = "__nav_" ~ loop.index %}
+      {{ item.render(nav_item, path, 1) }}
+    {% endfor %}
+  </ul>
+</nav>
